@@ -1,0 +1,36 @@
+<div class="grid-container">
+    <div class="grid-item"></div>
+    <div class="grid-item">
+        <h1 class="title">Buscador de lugares</h1>
+    </div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item">
+        <span class="p-float-label">
+            <input id="float-input" type="text" pInputText [(ngModel)]="location" class="p-inputtext-lg"> 
+            <label for="float-input">Introduzca una localización</label>
+        </span>
+    </div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item">
+        <span class="p-buttonset">
+            <p-button (click)="sendLocation()" label="Buscar" icon="pi pi-search" iconPos="right" class="p-button-text p-button-text" [disabled]="location == '' || resultLocation.length > 0"></p-button>
+            <p-button label="Borrar" (click)="clearResults()" icon="pi pi-trash" id="reset" [disabled]="location == '' "></p-button>
+        </span>
+    </div>
+    <div class="grid-item"></div>
+    <div class="grid-item"></div>
+    <div class="grid-item">
+        <div>
+            <ul>
+                <li *ngFor="let location of resultLocation">
+                    <button (click)="selectCoordinates([location.lat, location.lon])" class="selection">
+                    {{ location.display_name }}
+                </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-item"></div>
+</div>
