@@ -3,6 +3,19 @@ import { Subscription } from 'rxjs';
 import { CoordinatesToMapService } from '../../services/coordinates-to-map.service';
 import * as L from 'leaflet';
 
+// Defining general icon
+const iconUrl = './assets/marker-icon.png';
+const shadowUrl = './assets/marker-shadow.png';
+const iconDefault = L.icon({
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+
 @Component({
   selector: 'map',
   templateUrl: './map.component.html',
@@ -29,8 +42,7 @@ export class MapComponent implements OnInit, OnDestroy {
       if (this.marker != null) {
         this.map.removeLayer(this.marker);
       }
-      this.marker = new L.Marker([Number(this.coordinates[0]),Number(this.coordinates[1])]);
-      this.marker.addTo(this.map);
+      this.setMarker();
     });
     this.removeMarkerSubscription = this.coordinatesService.currentRemoveMarker.subscribe(action => {
       this.removeFlag = action;
@@ -58,6 +70,12 @@ export class MapComponent implements OnInit, OnDestroy {
 
     this.map.addLayer(tiles); 
 
+  }
+
+  setMarker() {
+    this.marker = new L.Marker([Number(this.coordinates[0]),Number(this.coordinates[1])]);
+    this.marker.setIcon(iconDefault);
+    this.marker.addTo(this.map);
   }
 
 }

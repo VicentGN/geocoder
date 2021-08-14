@@ -62,7 +62,7 @@ export class GetFullDataComponent implements OnInit, OnDestroy {
   }
 
   selectCoordinates(coordinates:Array<string>) {
-    this.coordinateService.changeCoordinates(coordinates);   
+    this.coordinateService.changeCoordinates(coordinates);  
   }
 
 
