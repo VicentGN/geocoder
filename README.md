@@ -1,27 +1,38 @@
-# Geocoder
+# Cartovis
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+Geocoder es la aplicación que permite buscar lugares en el mundo al estilo Google Maps
 
-## Development server
+## Requisitos previos
+Las siguientes aplicaciones deben estar instaladas en el ordenador:
+  - Node v10.19 o superior
+  - npm v6.13 o superior
+  - Angular / angular CLI 12
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Instalación
 
-## Code scaffolding
+Pasos a seguir
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  1. Clona el proyecto en un directorio local:
+   
+     ```
+     cd directorio_local
+     git clone https://github.com/VicentGN/geocoder.git
+     ``` 
+  2. Accede al directorio que almacena el frontend de la app y carga las dependencias.
+      ```
+      cd geocoder
+      npm i 
+      ng serve -o
+      ```
 
-## Build
+  3. El navegador predeterminado se abrirá con la aplicación.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Uso
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+La aplicación permite:
+  - Introducir una localización: país, región, municipio, dirección, lugar... y la aplicación devolverá la localización sobre un mapa desarrollado con Leaflet.
+  
+## Créditos
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Vicent García - [Portfolio](https://vicentgn.github.io/portfolio/)
