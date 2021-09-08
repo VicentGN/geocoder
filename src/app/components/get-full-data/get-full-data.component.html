@@ -7,7 +7,7 @@
     <div class="grid-item"></div>
     <div class="grid-item">
         <span class="p-float-label">
-            <input id="float-input" type="text" pInputText [(ngModel)]="location" class="p-inputtext-lg"> 
+            <input id="float-input" type="text" pInputText [(ngModel)]="location" class="p-inputtext-lg" [disabled]="resultLocation.length > 0"> 
             <label for="float-input">Introduzca una localización</label>
         </span>
     </div>

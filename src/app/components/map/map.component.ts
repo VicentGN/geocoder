@@ -28,6 +28,9 @@ export class MapComponent implements OnInit, OnDestroy {
   private coordinates: Array<string> = [];
   removeMarkerSubscription: Subscription = new Subscription();
   private removeFlag: boolean = false;
+  private lat: number = 39;
+  private lng: number = -1;
+  private initialZoom: number = 6;
 
   private marker: any = null;
 
@@ -43,11 +46,14 @@ export class MapComponent implements OnInit, OnDestroy {
         this.map.removeLayer(this.marker);
       }
       this.setMarker();
+      this.setView();
+
     });
     this.removeMarkerSubscription = this.coordinatesService.currentRemoveMarker.subscribe(action => {
       this.removeFlag = action;
       if (this.removeFlag) {
         this.map.removeLayer(this.marker);
+        this.resetView();
       }
     });
   }
@@ -58,8 +64,8 @@ export class MapComponent implements OnInit, OnDestroy {
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 39, -1 ],
-      zoom: 6
+      center: [ this.lat, this.lng ],
+      zoom: this.initialZoom
     })
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -76,6 +82,14 @@ export class MapComponent implements OnInit, OnDestroy {
     this.marker = new L.Marker([Number(this.coordinates[0]),Number(this.coordinates[1])]);
     this.marker.setIcon(iconDefault);
     this.marker.addTo(this.map);
+  }
+
+  setView(){
+    this.map.setView([Number(this.coordinates[0]),Number(this.coordinates[1])], 15);
+  }
+
+  resetView(){
+    this.map.setView([this.lat, this.lng], this.initialZoom);
   }
 
 }

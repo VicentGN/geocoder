@@ -10,6 +10,7 @@ import { MapComponent } from './components/map/map.component';
 // PrimeNG
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {ButtonModule} from 'primeng/button';
     AppComponent,
     GetFullDataComponent,
     MapComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
