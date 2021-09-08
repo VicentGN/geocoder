@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { GetFullDataComponent } from './components/get-full-data/get-full-data.component';
+import { FinderComponent } from './components/finder/finder.component';
 import { MapComponent } from './components/map/map.component';
 
 // PrimeNG
@@ -16,7 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
-    GetFullDataComponent,
+    FinderComponent,
     MapComponent,
     FooterComponent,
   ],

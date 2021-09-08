@@ -10,11 +10,11 @@ interface ObjectResponse {
 }
 
 @Component({
-  selector: 'app-get-full-data',
-  templateUrl: './get-full-data.component.html',
-  styleUrls: ['./get-full-data.component.css']
+  selector: 'app-finder',
+  templateUrl: './finder.component.html',
+  styleUrls: ['./finder.component.css']
 })
-export class GetFullDataComponent implements OnInit, OnDestroy {
+export class FinderComponent implements OnInit, OnDestroy {
 
   location: string = "";
   resultLocation: Array<ObjectResponse> = [];
